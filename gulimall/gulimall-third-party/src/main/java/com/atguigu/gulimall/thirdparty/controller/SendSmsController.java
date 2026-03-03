@@ -39,7 +39,12 @@ public class SendSmsController {
         AsyncClient client = AsyncClient.builder().region("cn-shanghai") // Region ID
                 .credentialsProvider(provider).overrideConfiguration(ClientOverrideConfiguration.create().setEndpointOverride("dysmsapi.aliyuncs.com")).build();
 
-        SendSmsRequest sendSmsRequest = SendSmsRequest.builder().signName("阿里云短信测试").templateCode("SMS_154950909").phoneNumbers(phone).templateParam("{\"code\":\"" + code + "\"}").build();
+        SendSmsRequest sendSmsRequest =
+                SendSmsRequest.builder()
+                        .signName("阿里云短信测试")
+                        .templateCode("SMS_154950909")
+                        .phoneNumbers(phone)
+                        .templateParam("{\"code\":\"" + code + "\"}").build();
 
         CompletableFuture<SendSmsResponse> response = client.sendSms(sendSmsRequest);
         SendSmsResponse resp = response.get();

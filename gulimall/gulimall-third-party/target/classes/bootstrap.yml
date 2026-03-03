@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: gulimall-third-party
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    #      config:
+    #        server-addr: 127.0.0.1:8848
+    #        namespace: 3a5be8bd-42c8-4ca3-8e46-ad829a33911b
+    #        group: dev
+    #        file-extension: yml
+    alicloud:
+      access-key: LTAI5tE9KDoj34v7TXCar4dJ
+      secret-key: 3r9oYRTCLU5PGBCKAUsF21XCuDt157
+      # gulimall-lpruoyu@1043669636695115.onaliyun.com
+      # AccessKey ID LTAI5tE9KDoj34v7TXCar4dJ
+      # AccessKey Secret 3r9oYRTCLU5PGBCKAUsF21XCuDt157
+      oss:
+        endpoint: oss-cn-hangzhou.aliyuncs.com
+        bucket: gulimall-hellolp
+server:
+  port: 30000
+#  servlet:
+#    context-path: /thirdparty
+mail:
+  user: 2460335742@qq.com
+  password: pcpgvlherjssdicb

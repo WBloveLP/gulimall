@@ -9,6 +9,11 @@
     <description>聚合服务</description>
     <packaging>pom</packaging>
 
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+    </properties>
     <!--    sonar.java.binaries-->
 <!--    <properties>-->
 <!--        <sonar.jacoco.reportPaths>${PWD}/./target/jacoco.exec</sonar.jacoco.reportPaths>-->
@@ -22,12 +27,12 @@
         <module>gulimall-member</module>
         <module>gulimall-coupon</module>
         <module>gulimall-gateway</module>
-        <module>gulimall-third-party</module>
         <module>gulimall-search</module>
         <module>gulimall-auth</module>
         <module>gulimall-cart</module>
         <module>gulimall-seckill</module>
         <module>renren-fast</module>
+        <module>gulimall-third-party</module>
     </modules>
 
 
