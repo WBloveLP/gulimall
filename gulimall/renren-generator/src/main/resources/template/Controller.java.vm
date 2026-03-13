@@ -44,10 +44,10 @@ public class ${className}Controller {
     /**
      * 信息
      */
-    @RequestMapping("/info/{${pk.attrname}}")
+    @RequestMapping("/info/{${pk.columnName}}")
     // @RequiresPermissions("${moduleName}:${pathName}:info")
-    public R info(@PathVariable("${pk.attrname}") ${pk.attrType} ${pk.attrname}){
-		${className}Entity ${classname} = ${classname}Service.getById(${pk.attrname});
+    public R info(@PathVariable("${pk.columnName}") ${pk.attrType} ${pk.columnName}){
+		${className}Entity ${classname} = ${classname}Service.getById(${pk.columnName});
 
         return R.ok().put("${classname}", ${classname});
     }
@@ -79,8 +79,8 @@ public class ${className}Controller {
      */
     @RequestMapping("/delete")
     // @RequiresPermissions("${moduleName}:${pathName}:delete")
-    public R delete(@RequestBody ${pk.attrType}[] ${pk.attrname}s){
-		${classname}Service.removeByIds(Arrays.asList(${pk.attrname}s));
+    public R delete(@RequestBody ${pk.attrType}[] ${pk.columnName}s){
+		${classname}Service.removeByIds(Arrays.asList(${pk.columnName}s));
 
         return R.ok();
     }
