@@ -170,6 +170,8 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
         }, executor).thenRunAsync(() -> {
             List<OrderItemVo> items = confirmVo.getItems();
             List<Long> collect = items.stream().map(OrderItemVo::getSkuId).collect(Collectors.toList());
+            // 查询选中的购物项有没有库存 SELECT SUM(stock-stock_locked) FROM `wms_ware_sku` WHERE sku_id=1
+            // 这块判断有没有货，我觉得还得判断: 用户要下单的skuid的商品数量 <= 该skuid的库存数量
             R hasStock = wareFeignService.getSkusHasStock(collect);
             List<SkuStockVo> data = hasStock.getData(new TypeReference<List<SkuStockVo>>() {
             });
@@ -379,7 +381,7 @@ public class OrderServiceImpl extends ServiceImpl<OrderDao, OrderEntity> impleme
         //1、生成订单号
         //这儿需要把数据库的订单号的字符设置多一点
         String orderSn = IdWorker.getTimeId();
-        //创建订单号
+        //2、构建订单信息
         OrderEntity orderEntity = buildOrder(orderSn);
         //2、获取到所有的订单项
         List<OrderItemEntity> itemEntities = buildOrderItems(orderSn);
