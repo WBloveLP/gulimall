@@ -28,6 +28,8 @@ public class ${className}Entity implements Serializable {
 	 */
 	#if($column.columnName == $pk.columnName)
 @TableId
+    #else
+@TableField("$column.columnName")
 	#end
 private $column.attrType $column.columnName;
 #end
