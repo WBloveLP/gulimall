@@ -8,8 +8,6 @@ import java.util.List;
 
 /**
  * 分页工具类
- * 
- * @author liupeng
  */
 @Data
 public class PageUtils implements Serializable {
