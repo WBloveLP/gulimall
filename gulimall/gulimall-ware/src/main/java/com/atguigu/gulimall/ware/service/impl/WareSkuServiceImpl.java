@@ -171,6 +171,7 @@ public class WareSkuServiceImpl extends ServiceImpl<WareSkuDao, WareSkuEntity> i
             List<Long> wareIds = hasStock.getWareId();
             if (wareIds == null || wareIds.size() == 0) {
                 //没有任何仓库有这个商品的库存
+                //那么其他商品也不用扣了，快速失败
                 throw new NoStockException(skuId);
             }
             //1、如果每一个商品都锁定成功，那么就已经将当前商品锁定了几件的工作单详情记录发给了MQ
