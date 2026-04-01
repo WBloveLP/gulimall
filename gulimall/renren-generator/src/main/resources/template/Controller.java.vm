@@ -23,7 +23,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("${moduleName}/${pathName}")
 public class ${className}Controller {
-    @Autowired
+    @Resource(name="${classname}ServiceImpl")
     private ${className}Service ${classname}Service;
 
     /**
