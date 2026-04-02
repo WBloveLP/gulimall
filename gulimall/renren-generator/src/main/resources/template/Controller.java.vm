@@ -54,7 +54,7 @@ public class ${className}Controller {
     public R save(@RequestBody ${className}Entity ${classname}){
 		${classname}Service.save(${classname});
 
-        return R.ok();
+        return R.ok().setData(${classname});
     }
 
     /**
