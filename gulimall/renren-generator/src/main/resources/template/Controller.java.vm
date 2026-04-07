@@ -27,24 +27,21 @@ public class ${className}Controller {
     private ${className}Service ${classname}Service;
 
     /**
-     * 列表
+     * 分页列表
      */
     @GetMapping("/list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = ${classname}Service.queryPage(params);
-
         return R.ok().put("page", page);
     }
 
-
     /**
-     * 信息
+     * 详情
      */
     @GetMapping("/info/{${pk.columnName}}")
     public R info(@PathVariable("${pk.columnName}") ${pk.attrType} ${pk.columnName}){
 		${className}Entity ${classname} = ${classname}Service.getById(${pk.columnName});
-
-        return R.ok().put("${classname}", ${classname});
+        return R.ok().setData(${classname});
     }
 
     /**
@@ -53,7 +50,6 @@ public class ${className}Controller {
     @PostMapping("/save")
     public R save(@RequestBody ${className}Entity ${classname}){
 		${classname}Service.save(${classname});
-
         return R.ok().setData(${classname});
     }
 
@@ -63,7 +59,6 @@ public class ${className}Controller {
     @PostMapping("/update")
     public R update(@RequestBody ${className}Entity ${classname}){
 		${classname}Service.updateById(${classname});
-
         return R.ok();
     }
 
@@ -73,7 +68,6 @@ public class ${className}Controller {
     @PostMapping("/delete")
     public R delete(@RequestBody ${pk.attrType}[] ${pk.columnName}s){
 		${classname}Service.removeByIds(Arrays.asList(${pk.columnName}s));
-
         return R.ok();
     }
 
