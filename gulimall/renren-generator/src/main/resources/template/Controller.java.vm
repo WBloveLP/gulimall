@@ -3,10 +3,6 @@ package ${package}.${moduleName}.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import com.claim.dispatch.po.Workinggroup;
-import com.claim.dispatch.service.WorkinggroupService;
-import com.claim.dispatch.util.page.PageUtils;
-import com.claim.dispatch.util.page.R;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -25,6 +21,14 @@ import java.util.Map;
 public class ${className}Controller {
     @Resource(name="${classname}ServiceImpl")
     private ${className}Service ${classname}Service;
+
+    /**
+     * 关键字查询
+     */
+    @PostMapping("/query")
+    public R query(@RequestBody ${className}Entity ${classname}){
+        return R.ok().setData(${classname}Service.query(${classname}));
+    }
 
     /**
      * 分页列表
